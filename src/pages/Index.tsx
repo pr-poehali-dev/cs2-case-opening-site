@@ -1,8 +1,15 @@
 import Header from "@/components/Header";
 import BonusSystem from "@/components/BonusSystem";
 import PromoCodeSystem from "@/components/PromoCodeSystem";
+import CaseGrid from "@/components/CaseGrid";
+import RecentDrops from "@/components/RecentDrops";
+import CaseOpeningAnimation from "@/components/CaseOpeningAnimation";
+import { useState } from "react";
 
 const Index = () => {
+  const [isOpeningCase, setIsOpeningCase] = useState(false);
+  const [selectedCaseName, setSelectedCaseName] = useState("");
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-[#1A1F2C] to-gray-800">
       <Header />
@@ -21,9 +28,14 @@ const Index = () => {
           </p>
         </div>
 
+        <CaseGrid />
+
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 mb-8">
-          <BonusSystem />
-          <PromoCodeSystem />
+          <RecentDrops />
+          <div className="space-y-8">
+            <BonusSystem />
+            <PromoCodeSystem />
+          </div>
         </div>
 
         {/* Quick Stats */}
@@ -47,6 +59,12 @@ const Index = () => {
             <div className="text-gray-400">Дней подряд</div>
           </div>
         </div>
+
+        <CaseOpeningAnimation
+          isOpen={isOpeningCase}
+          onClose={() => setIsOpeningCase(false)}
+          caseName={selectedCaseName}
+        />
       </main>
     </div>
   );
