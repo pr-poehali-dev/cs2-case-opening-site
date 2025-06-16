@@ -18,7 +18,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center space-x-8">
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-[#9b87f5] to-[#0EA5E9] rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 from-[#9b87f5] to-[#0EA5E9] rounded-lg flex items-center justify-center bg-[#e5121200]">
               <Icon name="Box" size={20} className="text-white" />
             </div>
             <span className="text-xl font-bold text-white">CS2Cases</span>
